@@ -1,0 +1,249 @@
+<div class="container body">
+    <div class="main_container" ng-app="webpush" ng-controller="SubscribersController" data-ng-init="getSubscribers()">
+        <div class="col-md-3 left_col">
+            <div class="left_col scroll-view">
+                <div class="navbar nav_title" style="border: 0;">
+                    <a ui-sref="app" class="site_title"><img src="img/sony-logo.gif"></a>
+                </div>
+                <div class="clearfix"></div>
+                <br/>
+                <!-- sidebar menu -->
+                <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                    <div class="menu_section">
+                        <ul class="nav side-menu">
+                            <li><a ui-sref="app"><i class="fa fa-users"></i>Subscribers<span
+                                    class="fa fa-chevron-right"></span></a></li>
+                            <!--<li><a ui-sref="app.auditdoc"><i class="fa fa-file-text-o"></i>Audit via DOC<span class="fa fa-chevron-right"></span></a></li>-->
+                        </ul>
+                    </div>
+                </div>
+                <!-- /sidebar menu -->
+
+                <!-- /menu footer buttons -->
+                <!-- /menu footer buttons -->
+                <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                    <script>console.log("modal started")</script>
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel"><i class="fa fa-send-o"></i> Push Message</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped jambo_table">
+                                        <thead>
+                                        <tr class="headings">
+                                            <th class="column-title">SalesForce Username</th>
+                                            <th class="column-title">Organization Name</th>
+                                            <th class="column-title">Organization Type</th>
+                                            <th class="column-title">Country ISO</th>
+                                        </tr>
+                                        </thead>
+
+                                        <tbody>
+                                        <tr class="even pointer">
+                                            <td>{{selectedSubscriber.userName}}</td>
+                                            <td>{{selectedSubscriber.organizationName}}</td>
+                                            <td>{{selectedSubscriber.organizationType}}</td>
+                                            <td>{{selectedSubscriber.countryIso}}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <form class="form-horizontal">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Title </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input type="text" name="pm-title" style="text-align: left" id="pm-title"
+                                                   class="form-control"><span id="errmsg-pm-title"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Body </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <textarea rows="2" name="pm-body" style="text-align: left" id="pm-body"
+                                      class="form-control"/><span id="errmsg-pm-body"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Icon</label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <select class="form-control">
+                                                <option selected value="sony1">Sony PNG icon (256x256)</option>
+                                                <option value="sony2">Sony JPG icon (256x256)</option>
+                                                <option value="warning">Warning icon (256x256)</option>
+                                                <option value="alert">Alert icon (256x256)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">URL </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input type="text" name="pm-url" style="text-align: left" id="pm-url" class="form-control"
+                                                   placeholder="http://www.sony.com"><span id="errmsg-pm-url"></span>
+                                        </div>
+                                    </div>
+                                    <div class="ln_solid"></div>
+                                    <div class="form-group">
+                                        <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-7">
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                                            <button type="button" class="btn btn-primary" onclick="notifyMe()">Display</button>
+                                            <button type="submit" class="btn btn-success" ng-click="sendPushNotification(selectedSubscriber.pushServiceId)">Submit</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+            <div class="nav_menu">
+                <nav class="" role="navigation">
+                    <div class="nav toggle">
+                        <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                    </div>
+                </nav>
+            </div>
+            <!-- Custom Theme Scripts -->
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <!--<div class="page-title">-->
+            <!--<div class="title_left">-->
+            <!--<h3>Web Push Notification Tool</h3>-->
+            <!--</div>-->
+            <!--</div>-->
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>Subscribers List</h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>
+                                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <div class="table-responsive">
+                                <table class="table table-striped jambo_table">
+                                    <thead>
+                                    <tr class="headings">
+                                        <th class="column-title">SalesForce Username</th>
+                                        <th class="column-title">Organization Name</th>
+                                        <th class="column-title">Organization Type</th>
+                                        <th class="column-title">Country ISO</th>
+                                        <th style="text-align: center">Push Message</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody ng-repeat="pnSubscriber in pnSubscribers">
+                                    <tr class="even pointer">
+                                        <td>{{pnSubscriber.userName}}</td>
+                                        <td>{{pnSubscriber.organizationName}}</td>
+                                        <td>{{pnSubscriber.organizationType}}</td>
+                                        <td>{{pnSubscriber.countryIso}}</td>
+                                        <td style="text-align: center">
+                                            <a data-toggle="modal" href=".bs-example-modal-lg" ng-click="setSelectedSubscriber(pnSubscriber)">
+                                                <i class="fa fa-send-o"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"/>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+            <div class="pull-right">
+                Web Push Notification Tool
+            </div>
+            <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        //called when key is pressed in textbox
+        $("#pm-title").keypress(function (e) {
+//            //if the letter is not digit then display error and don't type anything
+//            if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+//                //display error message
+//                $("#errmsg-title").html("Digits Only").show().fadeOut("slow");
+//                return false;
+//            }
+            if ($("#pm-title").val().length > 15) {
+                //display error message
+                $("#errmsg-pm-title").html("Max Title Length Reached").show().fadeOut("slow");
+                return false;
+            }
+        });
+        $("#pm-body").keypress(function (e) {
+            if ($("#pm-body").val().length > 30) {
+                //display error message
+                $("#errmsg-pm-body").html("Max Body Length Reached").show().fadeOut("slow");
+                return false;
+            }
+        });
+        $("#pm-url").keypress(function (e) {
+            if ($("#pm-url").val().length > 30) {
+                //display error message
+                $("#errmsg-pm-url").html("Max URL Length Reached").show().fadeOut("slow");
+                return false;
+            }
+        });
+    });
+</script>
+
+<script>
+    // request permission on page load
+    document.addEventListener('DOMContentLoaded', function () {
+        if (Notification.permission !== "granted")
+            Notification.requestPermission();
+    });
+
+    function notifyMe() {
+        if (!Notification) {
+            alert('Desktop notifications not available in your browser. Try Chromium.');
+            return;
+        }
+
+        if (Notification.permission !== "granted")
+            Notification.requestPermission();
+        else {
+            var notification = new Notification(jQuery("#pm-title").val(), {
+                icon: 'https://tigr.net/wp-content/uploads/2014/02/Sony-LOGO-256x256.jpg',
+                body: jQuery("#pm-body").val(),
+                tag: jQuery("#pm-url").val()
+            });
+
+            notification.onclick = function () {
+                window.open(jQuery("#pm-url").val());
+            };
+
+        }
+
+    }
+</script>
+
+<script src="scripts/custom.min.js"></script>
+

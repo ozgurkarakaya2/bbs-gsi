@@ -1,0 +1,6 @@
+{
+  "directory": "app/vendors",
+  "registry": "http://bower.herokuapp.com",
+  "proxy":"http://proxy.eu.sony.com:10080",
+  "https-proxy":"http://proxy.eu.sony.com:10080"
+}

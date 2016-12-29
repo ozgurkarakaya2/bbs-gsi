@@ -1,0 +1,280 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>SONY1</title>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+    <link href="styles/sonyOne.css" rel="stylesheet" />
+    <link href="styles/animate.css" rel="stylesheet" />
+    <link href="vendors/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="vendors/bootstrap/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="vendors/owlcarousel/owl.theme.css" rel="stylesheet" />
+    <link href="vendors/owlcarousel/assets/owl.carousel.css" rel="stylesheet" />
+    <link rel="manifest" href="manifest.json">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300' rel='stylesheet' type='text/css'>
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Start -->
+    <div class="row header" id="controller" ng-app="web-push-client" ng-controller="ClientController" data-ng-init="initializePushService()">
+        <div class="myPadding">
+            <div class="col-lg-4">
+                <div class="sony_logo_re">
+                    <br>
+                    <img class="sony_logo" src="img/sony_logo.png" />
+                        <div class="one_logo_padding">
+                        <br>
+                        <span class="one_logo"> 1</span>
+                        <span class="one_logo_text">The Channel Partner Portal from Sony</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8 header_right">
+                <!--<div class="col-md-6" style="float: right">-->
+                    <!--<div class="col-md-3 col-md-offset-8" style="text-align: left">-->
+                        <!--<p>Push Service</p>-->
+                    <!--</div>-->
+                    <!--<div class="col-md-1 slideThree">-->
+                        <!--<label class="subscription-switch" for="subscription1">-->
+                            <!--<input type="checkbox" id="subscription1" onchange="handleClick(this)" ng-checked="checkSubscribed()">-->
+                        <!--</label>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <div class="col-md-6 col-md-offset-8" style="float: right">
+                    <div>
+                        Push Service
+                    </div>
+                    <div class="slideThree" style="float: right" >
+                        <input type="checkbox" value="None" id="subscription" name="subscription" onchange="handleClick(this)" ng-checked="checkSubscribed()"  />
+                        <label for="subscription"></label>
+                    </div>
+                </div>
+
+
+                <div class="col-md-9 col-md-offset-6" style="float: right">
+                    <br>
+                    <div>
+                        <strong>Current User : {{getUserName()}}</strong>
+                    </div>
+                    <div class="header_right_link">
+
+                        <a href="javascript:void(0)" ng-click="removeAccount()">Remove Account</a>
+                        <span>|</span>
+                        <a href="javascript:void(0)">Update My Profile</a>
+                        <span>|</span>
+                        <a href="index.html">Logout</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Header End -->
+    <!-- Carousel Start -->
+   
+    <!-- Carousel End -->
+    <!-- Center -->
+    <div class="row main_content">
+        <div class="myPadding">
+            <!-- Left Menu -->
+            <div class="col-md-2 left_menu" style="padding-right:0px">
+                <div class="left_menu_group">
+                    <span class="left_menu_home">Home</span>
+                    <a href="javascript:void(0)">Products</a>
+                    <a href="javascript:void(0)">Data Download</a>
+                    <a href="javascript:void(0)">Price Changes</a>
+                    <a href="javascript:void(0)">Order Management</a>
+                    <a href="javascript:void(0)">Where to Buy</a>
+                    <a href="javascript:void(0)">Account Information</a>
+                    <a href="javascript:void(0)">Sales & Marketing</a>
+                    <a href="javascript:void(0)">Promotions & Offers</a>
+                    <a href="javascript:void(0)">Service & Support</a>
+                    <a href="javascript:void(0)">Accreditation Programme</a>
+                    <a href="javascript:void(0)">System Admin</a>
+                    <a href="javascript:void(0)">Change Dealer</a>
+                </div>
+                <div class="left_menu_re">
+                    <div style="z-index: 99999; width: 100%">
+                        <button class="btn dropdown-toggle left_menu_re_title" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                            Please Select A Page
+                            <span class="caret"></span>
+                        </button>
+                        <ul style="width: 100%; position: relative; margin-bottom: 30px" class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0)">Products</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0)">Data Download</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0)">Price Change</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0)">Order Management</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0)">Where to Buy</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0)">Account Information</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0)">Sales & Marketing</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0)">Promotions & Offers</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0)">Sony Europe Retail Partner</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0)">Accreditation Programme</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0)">System Admin</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0)">Change Dealer</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <!-- Left Menu End -->
+            <!-- Boxes -->
+            <div class="col-md-10">
+                <div class="col-md-4">
+                    <div class="boxes">
+                        <div class="boxes_title">Account Information</div>
+                        <div class="boxes_text"> </div>
+                        <a class="download" href="javascript:void(0)">
+                            <img src="img/acc.png" />
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="boxes">
+                        <div class="boxes_title">Order Management</div>
+                        <div class="boxes_text"> </div>
+                        <a class="download" href="javascript:void(0)">
+                            <img src="img/basket.png" />
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="boxes">
+                        <div class="boxes_title">Where to Buy ? </div>
+                        <div class="boxes_text"> </div>
+                        <a class="download" href="javascript:void(0)">
+                            <img src="img/find.png" />
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="boxes_two">
+                        <div class="boxes_title">Download Product Information Report</div>
+                        <div class="boxes_text">Please click on icon to see the more detail.</div>
+                        <a class="download" href="javascript:void(0)">
+                            <img src="img/download.png" />
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="boxes_two">
+                        <div class="boxes_title">Read Articles</div>
+                        <div class="boxes_text">Please click on icon to read all articles in the content arcive.</div>
+                        <a class="download" href="javascript:void(0)">
+                            <img src="img/art.png" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Left Menu End -->
+
+     <div class="row" style="padding-top:0px; padding-bottom:20px">
+
+        <div class='NP'> New Products </div>
+
+        <br>
+
+
+        <div class="owl-carousel corouselPaddng">
+
+            <div class="item">
+                <a href="javascript:void(0)"> <img src="img/c1.jpg" /> </a>
+            </div>
+            <div class="item">
+                <a href="javascript:void(0)"> <img src="img/c2.jpg" /> </a>
+            </div>
+            <div class="item">
+                <a href="javascript:void(0)"> <img src="img/c3.jpg" /> </a>
+            </div>
+            <div class="item">
+                <a href="javascript:void(0)"> <img src="img/c4.jpg" /> </a>
+            </div>
+            <div class="item">
+                <a href="javascript:void(0)"> <img src="img/c5.jpg" /> </a>
+            </div>
+            <div class="item">
+                <a href="javascript:void(0)"> <img src="img/c6.jpg" /> </a>
+            </div>
+            <div class="item">
+                <a href="javascript:void(0)"> <img src="img/c7.jpg" /> </a>
+            </div>
+            <div class="item">
+                <a href="javascript:void(0)"> <img src="img/c8.jpg" /> </a>
+            </div>
+            <div class="item">
+                <a href="javascript:void(0)"> <img src="img/c9.jpg" /> </a>
+            </div>
+            <div class="item">
+                <a href="javascript:void(0)"> <img src="img/c10.jpg" /> </a>
+            </div>
+            <div class="item">
+                <a href="javascript:void(0)"> <img src="img/c11.jpg" /> </a>
+            </div>
+            <div class="item">
+                <a href="javascript:void(0)"> <img src="img/c12.jpg" /> </a>
+            </div>
+            <div class="item">
+                <a href="javascript:void(0)"> <img src="img/c13.jpg" /> </a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer Start -->
+    <div class="row footer">
+        <div class="myPadding ">
+            <div class="col-md-4 footer_left">
+                <a href="index.html" target="_blank" title="Go to BASE for more assets">
+                    <img class="footer_right_image" src="img/baseLogo.png" />
+                </a>
+            </div>
+            <div class="welcome_text">
+                Page Design by <i> Gizem Genc Cagla</i>
+            </div>
+            <div class="col-md-8 footer_right">
+                <a href="javascript:void(0)" class="footer_link">Site Map</a>
+                <span>|</span>
+                <a href="javascript:void(0)" class="footer_link">Contact Us</a>
+                <span>|</span>
+                <a href="javascript:void(0)" class="footer_link">Sony Sites</a>
+                <span>|</span>
+                <a href="javascript:void(0)" class="footer_link">Manage Cookies</a>
+                <span>|</span>
+                <a href="javascript:void(0)" class="footer_link">Terms and Conditions of Website Use</a>
+            </div>
+        </div>
+    </div>
+    <!-- Footer Start -->
+
+
+
+    <script src="scripts/js/jquery-1.9.1.min.js"></script>
+    <script src="vendors/bootstrap/js/bootstrap.js"></script>
+
+    <script src="vendors/owlcarousel/owl.carousel.min.js"></script>
+    <script>
+        $('.owl-carousel').owlCarousel({
+            loop: true,
+            center: true,
+            margin: 15,
+            pagination: true,
+            autoWidth: true
+        })
+    </script>
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    <!--<script src="scripts/js/main.js"></script>-->
+    <script src="scripts/js/jquery-1.9.1.min.js"></script>
+    <script src="vendors/angular/angular.min.js"></script>
+    <script src="vendors/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="vendors/ngstorage/ngStorage.min.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/services/services.js"></script>
+    <script src="scripts/controllers/controllers.js"></script>
+    <script src="scripts/js/clickcheckbox.js"></script>
+</body>
+</html>

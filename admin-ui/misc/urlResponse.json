@@ -1,0 +1,25 @@
+{
+  "url": "http://www.sony.co.uk/electronics/televisions/xd8505-series",
+  "type": "facebook",
+  "rules": [{
+    "main": "og_description",
+    "sub": "desc_present",
+    "status": "success",
+    "message": "og:description tag is present"
+  }, {
+    "main": "og_title",
+    "sub": "title_greater_60",
+    "status": "warning",
+    "message": "og:title should be more than 60 chars"
+  }, {
+    "main": "og_title",
+    "sub": "title_present",
+    "status": "danger",
+    "message": "og:title tag is missing"
+  }, {
+    "main": "og_title",
+    "sub": "title_smaller_90",
+    "status": "success",
+    "message": "og:title is smaller than 90 chars"
+  }]
+}
